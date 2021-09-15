@@ -6,12 +6,15 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryFormComponent } from './category-form/category-form.component';
 import { RouterModule } from '@angular/router';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
     CommonModule,
     CategoriesRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   declarations: [ CategoryListComponent, CategoryFormComponent ],
 })
