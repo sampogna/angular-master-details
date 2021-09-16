@@ -4,3 +4,12 @@
 .float-right {
     float: right;
 }
+
+
+.invalid-field {
+    display:block;
+    width: 100%;
+    font-size: 80%;
+    margin-top: 0.25rem;
+    color: #dc3545;
+}

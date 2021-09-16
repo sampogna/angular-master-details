@@ -34,11 +34,12 @@
                 <div class="form-group col-md-4">
                     <label for="name"> Nome </label>
                     <input type="text" class="form-control" id="name" formControlName="name">
+                    <div class="invalid-field text-danger" *ngIf="categoryForm.get('name')?.invalid && categoryForm.get('name')?.touched">
+                        <div class="" *ngIf="categoryForm.get('name')?.errors?.required"> dado obrigatório.</div>
+                        <div class="" *ngIf="categoryForm.get('name')?.errors?.minlength"> deve ter no mínimo 2 caracteres.</div>
+                    </div>
                 </div>
-                <div class="text-danger" *ngIf="categoryForm.get('name')?.invalid && categoryForm.get('name')?.touched">
-                    <div class="" *ngIf="categoryForm.get('name')?.errors?.required"> dado obrigatório.</div>
-                    <div class="" *ngIf="categoryForm.get('name')?.errors?.minlength"> deve ter no mínimo 2 caracteres.</div>
-                </div>
+
 
                 <div class="form-group col-md-8">
                     <label for="description"> Descrição </label>
