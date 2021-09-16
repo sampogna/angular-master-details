@@ -28,6 +28,7 @@
             Informações sobre a categoria
         </div>
         <div class="card-body">
+
             <div class="form-row">
 
                 <div class="form-group col-md-4">
@@ -45,6 +46,15 @@
                 </div>
 
             </div>
+
+            <div class="alert alert-danger mt-4" *ngIf="serverErrorMessages">
+                <strong>Erro no Servidor:</strong>
+                <ul>
+                    <li *ngFor="let error of serverErrorMessages"> {{ error }} </li>
+
+                </ul>
+            </div>
+
         </div>
         <div class="card-footer">
             <button [disabled]="submittingForm || categoryForm.invalid" class="btn-primary btn btn-lg float-right" type="submit"> Salvar </button>
