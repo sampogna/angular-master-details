@@ -71,12 +71,14 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   }
 
   submitForm() {
-    this.submittingForm = !this.submittingForm;
+
+
+    this.submittingForm = true;
 
     if (this.currentAction == "new")
       this.createEntry();
     else
-      this.updateEntry;
+      this.updateEntry();
   }
 
   get typeOptions(): Array<any> {
@@ -93,7 +95,6 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   // PRIVATE METHODS
 
   private setCurrentAction() {
-    console.log('route snapshot', this.router.snapshot.url[0].path)
     if (this.router.snapshot.url[0].path == "new") 
       this.currentAction = "new"
     else
@@ -146,6 +147,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
 
   public createEntry() {
 
+
     const entry: Entry = Object.assign(new Entry(), this.entryForm.value);
 
     this.entryService.create(entry)
@@ -158,6 +160,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
 
   private updateEntry() {
 
+
     const entry: Entry = Object.assign(new Entry(), this.entryForm.value);
 
     this.entryService.update(entry)
@@ -169,6 +172,8 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   }
 
   private actionsForSuccess(entry: Entry) {
+    this.submittingForm = false;
+    
     this.toastr.success('Solicitação processada com sucesso.')
 
     // redirect/ reload page
